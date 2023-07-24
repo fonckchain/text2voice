@@ -21,7 +21,7 @@ async function synthesizeSpeech() {
   const request = {
     input: {ssml: ssml},
     // Select the language and SSML voice gender (optional)
-    voice: {languageCode: 'es-US', ssmlGender: 'MALE', name: 'es-US-Studio-B'},
+    voice: {languageCode: 'es-US', ssmlGender: 'MALE', name: 'es-US-News-E'},
     // Select the type of audio encoding
     audioConfig: {audioEncoding: 'MP3'},
   };
