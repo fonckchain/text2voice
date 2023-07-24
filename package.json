@@ -1,0 +1,23 @@
+{
+  "name": "text2voice",
+  "version": "1.0.0",
+  "description": "A node.js application that converts text files to voice using Google Cloud Text-to-Speech API. It supports multiple languages and be used to generate audio for videos, presentations, and more.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "text-to-speech",
+    "Google",
+    "Cloud",
+    "audio",
+    "generation",
+    "node.js"
+  ],
+  "author": "Andres Fonseca",
+  "license": "ISC",
+  "dependencies": {
+    "@google-cloud/text-to-speech": "^4.2.3",
+    "dotenv": "^16.3.1"
+  }
+}
