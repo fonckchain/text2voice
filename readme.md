@@ -40,8 +40,8 @@ You can customize the voice profile used for the speech by editing the `voicePro
 
 ## 📚 Resources 📚
 
-- (Google Text-to-Speech API Documentation LINKS)[https://cloud.google.com/text-to-speech/docs]
-- (Speech Synthesis Markup Language (SSML) Reference)[https://developers.google.com/assistant/df-asdk/ssml]
+- [Google Text-to-Speech API Documentation LINKS](https://cloud.google.com/text-to-speech/docs)
+- [Speech Synthesis Markup Language (SSML) Reference](https://developers.google.com/assistant/df-asdk/ssml)
 
 ## 📃 License 📃
 
