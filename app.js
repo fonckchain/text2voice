@@ -1,5 +1,7 @@
+console.log(process.env.GOOGLE_APPLICATION_CREDENTIALS);
+
 // Load environment variables from .env file
-require('dotenv').config();
+require('dotenv').config({ path: './.env' });
 
 // Imports the Google Cloud client library
 const textToSpeech = require('@google-cloud/text-to-speech');
