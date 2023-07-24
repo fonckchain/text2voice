@@ -1,5 +1,3 @@
-console.log(process.env.GOOGLE_APPLICATION_CREDENTIALS);
-
 // Load environment variables from .env file
 require('dotenv').config({ path: './.env' });
 
@@ -9,19 +7,23 @@ const textToSpeech = require('@google-cloud/text-to-speech');
 // Import other required libraries
 const fs = require('fs');
 const util = require('util');
+const path = require('path');
+
+// Import voice profiles
+const voiceProfiles = require('./voiceProfiles');
 
 // Creates a client
 const client = new textToSpeech.TextToSpeechClient();
 
-async function synthesizeSpeech() {
+async function synthesizeSpeech(profile) {
   // Read the SSML text from a file
   const ssml = fs.readFileSync('input.ssml', 'utf8');
 
   // Construct the request
   const request = {
     input: {ssml: ssml},
-    // Select the language and SSML voice gender (optional)
-    voice: {languageCode: 'es-US', ssmlGender: 'MALE', name: 'es-US-News-E'},
+    // Select the voice profile
+    voice: voiceProfiles[profile],
     // Select the type of audio encoding
     audioConfig: {audioEncoding: 'MP3'},
   };
@@ -31,8 +33,11 @@ async function synthesizeSpeech() {
 
   // Write the binary audio content to a local file
   const writeFile = util.promisify(fs.writeFile);
-  await writeFile('output.mp3', response.audioContent, 'binary');
-  console.log('Audio content written to file: output.mp3');
+  const timestamp = new Date().toISOString().replace(/:/g, '-');
+  const outputFilePath = path.join('C:\\Users\\Fonck\\Music\\sound2text', `text2speech_${timestamp}.mp3`);
+  await writeFile(outputFilePath, response.audioContent, 'binary');
+  console.log(`Audio content written to file: ${outputFilePath}`);
 }
 
-synthesizeSpeech().catch(console.error);
+// Use the male profile
+synthesizeSpeech('femenina1').catch(console.error);

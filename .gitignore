@@ -2,4 +2,3 @@ node_modules/
 .env
 credentials.json
 input.ssml
-output.mp3
